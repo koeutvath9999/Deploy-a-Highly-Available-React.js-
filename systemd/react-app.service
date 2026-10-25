@@ -1,0 +1,16 @@
+
+[Unit]
+Description=React Vite Application
+After=network.target
+
+[Service]
+Type=simple
+User=reactapp
+Group=reactapp
+WorkingDirectory=/opt/reactapp
+ExecStart=/usr/local/bin/serve -s /opt/reactapp/dist -l tcp://0.0.0.0:3000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

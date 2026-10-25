@@ -1,0 +1,403 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e5e7eb;
+  background: #0b1120;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #0b1120;
+}
+
+button {
+  font: inherit;
+}
+
+.dashboard {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.dashboard-heading,
+.panel-header,
+.infra-card-top,
+.vip-panel,
+.header-actions,
+.panel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dashboard-heading {
+  margin-bottom: 28px;
+}
+
+.dashboard-heading h1 {
+  margin: 0;
+  font-size: clamp(26px, 4vw, 36px);
+  letter-spacing: -1px;
+}
+
+.dashboard-heading p,
+.panel-header p,
+.vip-panel p {
+  color: #94a3b8;
+  margin: 8px 0 0;
+}
+
+.connection-status,
+.server-badge,
+.sample-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  background: #123d32;
+  color: #6ee7b7;
+}
+
+.connection-status.offline,
+.server-badge.down,
+.server-badge.unknown {
+  background: #451f2a;
+  color: #fda4af;
+}
+
+.vip-panel,
+.infrastructure-card,
+.requests-panel {
+  border: 1px solid #263349;
+  background: #111b2e;
+  border-radius: 18px;
+}
+
+.vip-panel {
+  padding: 26px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  background: linear-gradient(120deg, #132b3d, #111b2e);
+}
+
+.infra-label,
+.summary span {
+  display: block;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.vip-panel h2 {
+  margin: 10px 0;
+  font-size: clamp(24px, 3vw, 32px);
+}
+
+.vip-active {
+  min-width: 200px;
+  padding: 18px;
+  border: 1px solid #34445b;
+  border-radius: 12px;
+  background: #0b1424;
+}
+
+.vip-active strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 22px;
+  color: #6ee7b7;
+}
+
+.infrastructure-section {
+  margin: 30px 0;
+}
+
+.infrastructure-section > h2,
+.panel-header h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+
+.infrastructure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.infrastructure-card {
+  padding: 22px;
+  min-width: 0;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.infrastructure-card.active-lb {
+  border-color: #34d399;
+  box-shadow: 0 0 0 1px #34d39920;
+}
+
+.infra-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #1e3048;
+  color: #93c5fd;
+  font-size: 22px;
+}
+
+.infrastructure-card h3 {
+  margin: 20px 0 6px;
+  font-size: 20px;
+}
+
+.infrastructure-card p {
+  margin: 0 0 10px;
+  color: #a5b4c7;
+  overflow-wrap: anywhere;
+}
+
+.infra-role {
+  color: #7f91a9;
+  font-size: 13px;
+}
+
+.server-badge.up {
+  color: #6ee7b7;
+  background: #123d32;
+}
+
+.server-badge.down {
+  color: #fda4af;
+  background: #451f2a;
+}
+
+.server-badge.unknown {
+  color: #cbd5e1;
+  background: #334155;
+}
+
+.lb-state {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid #263349;
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.lb-state.is-active {
+  color: #6ee7b7;
+}
+
+.error-message {
+  margin: 24px 0;
+  padding: 18px;
+  border: 1px solid #7f1d1d;
+  border-radius: 12px;
+  background: #2a151c;
+  color: #fecaca;
+  overflow-wrap: anywhere;
+}
+
+.error-message p {
+  margin: 8px 0;
+}
+
+.error-message small {
+  color: #fda4af;
+}
+
+.requests-panel {
+  margin-top: 36px;
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 24px;
+  flex-wrap: wrap;
+}
+
+.panel-header h2 {
+  margin-bottom: 0;
+}
+
+.header-actions {
+  flex-wrap: wrap;
+}
+
+.sample-count {
+  background: #1e3048;
+  color: #bfdbfe;
+}
+
+.pause-button {
+  border: 1px solid #475569;
+  border-radius: 9px;
+  padding: 9px 16px;
+  background: #1e293b;
+  color: #e2e8f0;
+  cursor: pointer;
+}
+
+.pause-button:hover {
+  background: #334155;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 20px 24px;
+  border-top: 1px solid #263349;
+  border-bottom: 1px solid #263349;
+  background: #0e1728;
+}
+
+.summary strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th,
+td {
+  padding: 15px 18px;
+  border-bottom: 1px solid #263349;
+  font-size: 13px;
+}
+
+th {
+  color: #94a3b8;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  background: #0e1728;
+}
+
+td {
+  color: #dbe4f0;
+}
+
+tbody tr:hover {
+  background: #172338;
+}
+
+.empty-state {
+  text-align: center;
+  color: #94a3b8;
+  padding: 35px;
+}
+
+.result-badge {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.result-badge.ok {
+  color: #6ee7b7;
+  background: #123d32;
+}
+
+.result-badge.failed {
+  color: #fda4af;
+  background: #451f2a;
+}
+
+.request-id {
+  color: #93c5fd;
+  font-family: monospace;
+}
+
+.panel-footer {
+  padding: 18px 24px;
+  color: #94a3b8;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #34d399;
+}
+
+.live-dot.paused {
+  background: #fbbf24;
+}
+
+.note {
+  margin: 20px 0 0;
+  color: #7f91a9;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .dashboard {
+    padding: 18px;
+  }
+
+  .dashboard-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .infrastructure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .vip-panel {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .vip-active {
+    width: 100%;
+  }
+
+  .panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
